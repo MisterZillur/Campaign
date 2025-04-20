@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campaign Statistics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Active Campaigns</h1>
+    <ul>
+        {% for campaign in campaigns %}
+        <li><a href="{{ url_for('campaign_overview', campaign_name=campaign.name, year=campaign.year) }}">{{ campaign.name }} ({{ campaign.year }})</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
