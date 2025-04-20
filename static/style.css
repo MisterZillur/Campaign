@@ -1,0 +1,42 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: navy;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+a {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
