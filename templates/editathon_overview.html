@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ campaign.name }} ({{ campaign.year }}) - {{ editathon.sitename }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ campaign.name }} ({{ campaign.year }}) - {{ editathon.sitename }}</h1>
+    <p>{{ editathon.description }}</p>
+
+    <h2>Project Statistics for {{ editathon.sitename }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Users</th>
+                <th>Articles</th>
+                <th>Accepted Articles</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project_stat in project_stats %}
+            <tr>
+                <td>{{ project_stat.project }}</td>
+                <td>{{ project_stat.users }}</td>
+                <td>{{ project_stat.articles }}</td>
+                <td>{{ project_stat.accepted_articles }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>User Statistics for {{ editathon.sitename }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Articles</th>
+                <th>Accepted Articles</th>
+                <th>Projects</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_stat in user_stats %}
+            <tr>
+                <td>{{ user_stat.user }}</td>
+                <td>{{ user_stat.articles }}</td>
+                <td>{{ user_stat.accepted_articles }}</td>
+                <td>{{ ', '.join(user_stat.projects) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ url_for('campaign_overview', campaign_name=campaign.name, year=campaign.year) }}">Back to Campaign Overview</a></p>
+</body>
+</html>
